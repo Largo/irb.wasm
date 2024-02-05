@@ -2,5 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "ruby_wasm", git: "https://github.com/ruby/ruby.wasm", ref: "d13d659731a7a81bfda053caeb1a593fe2d92aba"
-gem "js", "~> 2.5.0"
+#gem "ruby_wasm", git: "https://github.com/largo/ruby.wasm"
+#gem "js", git: "https://github.com/Largo/ruby.wasm", glob:"packages/gems/js/*.gemspec"
+gem "ruby_wasm",  path:"../ruby.wasm"
+gem "js",  path:"../ruby.wasm/packages/gems/js"

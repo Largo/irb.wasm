@@ -1,22 +1,24 @@
-GIT
-  remote: https://github.com/ruby/ruby.wasm
-  revision: d13d659731a7a81bfda053caeb1a593fe2d92aba
-  ref: d13d659731a7a81bfda053caeb1a593fe2d92aba
+PATH
+  remote: ../ruby.wasm/packages/gems/js
+  specs:
+    js (2.5.0)
+
+PATH
+  remote: ../ruby.wasm
   specs:
     ruby_wasm (2.5.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    js (2.5.0)
 
 PLATFORMS
   ruby
   x86_64-linux
 
 DEPENDENCIES
-  js (~> 2.5.0)
+  js!
   ruby_wasm!
 
 BUNDLED WITH
-   2.5.3
+   2.5.5
