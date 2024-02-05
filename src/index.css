@@ -5,6 +5,76 @@ div#terminal {
     --font: sfmono-regular,consolas,menlo,dejavu sans mono,monospace
 }
 
+.wrapper {
+    display: grid;
+    grid-template: auto / 1fr 1fr;
+}
+
+.monitor {
+    width:515px;
+    height: 300px;
+    overflow-y:scroll;
+    border: solid 1em #333;
+    border-radius:.5em;
+}
+.monitor::-webkit-scrollbar {
+    width: 15px;
+}
+.monitor::-webkit-scrollbar-thumb {
+    background: #666;
+}
+::-webkit-scrollbar-track {
+    background-color: #888;
+}
+.stand:before {
+    content:"";
+    display:block;
+    position:relative;
+    background: #222;
+    width: 150px;
+    height: 50px;
+    top:382px;
+    left:185px;
+}
+.stand:after {
+    content:"";
+    display:block;
+    position:relative;
+    background:#333;
+    border-top-left-radius:.5em;
+    border-top-right-radius:.5em;
+    width: 300px;
+    height: 15px;
+    top: 50px;
+    left: 110px;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.container {
+    border: 3px solid #f1f1f1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: hsla(90, 43.7%, 18.8%, 0.6);
+}
+
+.top {
+    padding: 10px;
+    background: #f1f1f1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.content {
+    padding: 10px;
+}
+
 html, body {
     height: 100%;
     margin: 0;

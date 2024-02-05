@@ -74,18 +74,12 @@ export class IRB {
         termWriter.write("$ #\r\n");
         termWriter.write("$ # \x1B[32;1m irb.wasm - IRB on CRuby on WebAssembly\x1B[m\r\n");
         termWriter.write("$ #\r\n");
-        termWriter.write("$ # Source code is available at https://github.com/kateinoigakukun/irb.wasm\r\n");
-        termWriter.write("$ #\r\n");
-        termWriter.write("$ cat EXAMPLES.rb \r\n");
-        termWriter.write(" \r\n");
-        termWriter.write("puts \"Hello, world!\"\r\n");
-        termWriter.write(" \r\n");
-        termWriter.write(`RubyVM::AbstractSyntaxTree.parse("puts :hello")\r\n`)
-        termWriter.write(" \r\n");
-        termWriter.write("require \"prism\"\r\n");
-        termWriter.write(`Prism.parse("puts :hello")\r\n`);
-        termWriter.write(" \r\n");
-        termWriter.write("$ " + args.join(" ") + "\r\n");
+        termWriter.write("\x1B[32;1m $document = JS.global.document\r\n")
+        termWriter.write("\x1B[32;1m $content = $document.querySelector(\".content\")\r\n")
+        termWriter.write("\x1B[32;1m title = $document.createElement(\"h1\")\r\n")
+        termWriter.write("\x1B[32;1m title.innerHTML = \"Hello Rubyist!\"\r\n")
+        termWriter.write("\x1B[32;1m $content.appendChild(title)\x1B[m\r\n")
+        //termWriter.write("$ " + args.join(" ") + "\r\n");
         const vm = new RubyVM();
         wasmFs.fs.mkdirSync("/home/me", { mode: 0o777, recursive: true });
         wasmFs.fs.mkdirSync("/home/me/.gem/specs", { mode: 0o777, recursive: true });
@@ -159,7 +153,13 @@ export class IRB {
     }
 
     start() {
-        this.vm.eval(`require "/bundle/setup"`)
+        this.vm.eval(`require "/bundle/setup"
+        require "js"
+        $content = JS.global.document.querySelector(".content")
+        $document = JS.global.document
+        title = $document.createElement("h1") 
+        title.innerHTML = "Hello Rubyist!"
+        $content.appendChild(title)`)
         this.term.startIRB(this.vm);
     }
 
