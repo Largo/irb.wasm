@@ -22,3 +22,10 @@ task :rebuild do
   sh "rake clean"
   sh "rake"
 end
+
+desc "Full rebuild and start cycle"
+task :cycle do
+  sh "rake clean"
+  sh "rake"
+  sh "rake parcel"
+end
