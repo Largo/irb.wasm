@@ -71,14 +71,16 @@ export class IRB {
         const args = [
             "irb.wasm", "-e_=0", "-I/gems/lib"
         ];
-        termWriter.write("$ #\r\n");
-        termWriter.write("$ # \x1B[32;1m irb.wasm - IRB on CRuby on WebAssembly\x1B[m\r\n");
-        termWriter.write("$ #\r\n");
-        termWriter.write("\x1B[32;1m $document = JS.global.document\r\n")
-        termWriter.write("\x1B[32;1m $content = $document.querySelector(\".content\")\r\n")
-        termWriter.write("\x1B[32;1m title = $document.createElement(\"h1\")\r\n")
-        termWriter.write("\x1B[32;1m title.innerHTML = \"Hello Rubyist!\"\r\n")
-        termWriter.write("\x1B[32;1m $content.appendChild(title)\x1B[m\r\n")
+        // termWriter.write("$ #\r\n");
+        // termWriter.write("$ # \x1B[32;1m Hello! Welcome to Interactive Ruby (IRB). \x1B[m\r\n");
+        // termWriter.write("$ # You can run ruby commands and interact with the website \r\n");
+        // termWriter.write("$ #\r\n");
+        // termWriter.write("\x1B[35;1m$d\x1B[m = JS.global.document\n" +
+        // "\x1B[35;1m$c\x1B[m = $d.querySelector(\x1B[32;1m\".content\"\x1B[m)\n" +
+        // "title = \x1B[35;1m$d\x1B[m.createElement(\x1B[32;1m\"h1\"\x1B[m)\n" +
+        // "title.innerHTML = \x1B[32;1m\"Hello Rubyist!\"\x1B[m\n" +
+        // "\x1B[35;1m$c\x1B[m.appendChild(title) \n")
+
         //termWriter.write("$ " + args.join(" ") + "\r\n");
         const vm = new RubyVM();
         wasmFs.fs.mkdirSync("/home/me", { mode: 0o777, recursive: true });
@@ -155,11 +157,13 @@ export class IRB {
     start() {
         this.vm.eval(`require "/bundle/setup"
         require "js"
-        $content = JS.global.document.querySelector(".content")
-        $document = JS.global.document
-        title = $document.createElement("h1") 
+        $d = JS.global.document
+        $c = $d.querySelector(".content")
+        title = $d.createElement("h1") 
         title.innerHTML = "Hello Rubyist!"
-        $content.appendChild(title)`)
+        $c.appendChild(title)
+       
+        `)
         this.term.startIRB(this.vm);
     }
 

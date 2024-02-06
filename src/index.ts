@@ -5,7 +5,8 @@ import { makeXTermTerminal } from "./terminals/xterm";
 
 function makeTerminal() {
     const query = new URLSearchParams(window.location.search);
-    return query.get("FEATURE_XTERM_RELINE") === "1" ? makeXTermTerminal() : makeJQueryTerminal();
+    return makeXTermTerminal();
+    //return query.get("FEATURE_XTERM_RELINE") === "1" ? makeXTermTerminal() : makeJQueryTerminal();
 }
 
 async function init() {

@@ -11,12 +11,14 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.9.2)
 
 PLATFORMS
   ruby
   x86_64-linux
 
 DEPENDENCIES
+  awesome_print
   js!
   ruby_wasm!
 

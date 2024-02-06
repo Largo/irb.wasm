@@ -10,6 +10,16 @@ div#terminal {
     grid-template: auto / 1fr 1fr;
 }
 
+@media (max-width: 800px) {
+    .wrapper {
+        grid-template: auto / 1fr;
+        gap: 20px;
+    }    
+    .stand {
+        margin-bottom: 65px;
+    }
+}
+
 .monitor {
     width:515px;
     height: 300px;
