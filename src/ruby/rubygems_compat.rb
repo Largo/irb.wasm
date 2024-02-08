@@ -1,14 +1,14 @@
 require "rubygems/commands/install_command"
 
-class JS::Object
-  def to_a
-      ary = []
-      self[:length].to_i.times do |i|
-          ary << self.call(:at, i).to_i
-      end
-      ary
-  end
-end
+# class JS::Object
+#   def to_a
+#       ary = []
+#       self[:length].to_i.times do |i|
+#           ary << self.call(:at, i).to_i
+#       end
+#       ary
+#   end
+# end
 
 class Gem::Request
   def self.request(uri, request)
