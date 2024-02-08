@@ -7,7 +7,13 @@ div#terminal {
 
 .wrapper {
     display: grid;
-    grid-template: auto / 1fr 1fr;
+    /*grid-template: auto / 1fr 1fr;*/
+    grid-template: auto / 1fr;
+    gap: 20px;
+
+}
+.stand {
+    margin-bottom: 65px;
 }
 
 @media (max-width: 800px) {
@@ -21,7 +27,8 @@ div#terminal {
 }
 
 .monitor {
-    width:515px;
+    width:1000px;
+    max-width: 100%;
     height: 300px;
     overflow-y:scroll;
     border: solid 1em #333;
